@@ -1,4 +1,4 @@
-# Practical-Evaluation-of-IEEE-802.11-WiFi-technolgy-performance
+# Practical Evaluation of IEEE 802.11 WiFi technology performance
 
 **Student:** Haruna Muhammad Idris  
 **Supervisor:** Prof. Dr. Gal Zoltan  
@@ -123,7 +123,7 @@ The infrastructure AP capture environments were management-dominant, while Xiaom
 
 The observed infrastructure AP environment contained substantially more management traffic and data activity. The Xiaomi SoftAP condition contained substantially more control activity relative to both data and management traffic.
 
-> The 24 supplied captures show a distinct difference in observed MAC-layer composition. Infrastructure AP environments were management-dominant, whereas Xiaomi SoftAP captures were control-dominant. The difference remained visible when raw counts and duration-normalized frame rates were compared.
+** The 24 supplied captures show a distinct difference in observed MAC-layer composition. Infrastructure AP environments were management-dominant, whereas Xiaomi SoftAP captures were control-dominant. The difference remained visible when raw counts and duration-normalized frame rates were compared.**
 
 ### 2. Control-to-data ratio across repeated scenarios
 
@@ -158,7 +158,7 @@ For `S1_R02_01.csv` and `S2_R02_01.csv`, the AP value is the mean of the two AP 
 
 The Xiaomi SoftAP capture had a higher control-to-data ratio than the corresponding AP capture in every paired scenario.
 
-> Across every paired scenario in the expanded dataset, the Xiaomi SoftAP capture had a higher observed control-to-data ratio than the infrastructure AP capture. The result was repeated across indoor, outdoor, and multiple numbered scenarios.
+**Across every paired scenario in the dataset, the Xiaomi SoftAP capture had a higher observed control-to-data ratio than the infrastructure AP capture. **
 
 The result demonstrates a repeated MAC-layer pattern. It does not independently prove lower throughput or poorer user performance because throughput, latency, loss, retry rate, and traffic load were not controlled in the current captures.
 
@@ -204,7 +204,7 @@ The principal subtype contrasts were:
 
 > The clearest infrastructure AP-environment signature was high beacon density. Beacon frames appeared in all AP captures at a mean rate of 46.86 frames/s, compared with 10.26 frames/s for Xiaomi captures.
 
-CF-End is an important candidate implementation or configuration signature of the tested Xiaomi SoftAP condition. Its repeated presence does not, on its own, prove full Point Coordination Function operation. Raw PCAP/PCAPNG frame-field inspection and controlled reproduction would be required to establish its exact origin and role.
+The CF-End frame is a strong candidate for an implementation or configuration signature of the tested Xiaomi SoftAP.- Its repeated presence does not, on its own, prove full Point Coordination Function operation. Raw PCAP/PCAPNG frame-field inspection and controlled reproduction would be required to establish its exact origin and role.
 
 ### 4. Scenario and physical-environment effects
 
@@ -256,7 +256,7 @@ The expression is conceptual rather than a fitted mathematical model. It highlig
 
 ### 5. Correlation findings
 
-The correlation analysis was performed across the 24 capture files. These relationships describe co-variation in the dataset and do not establish causality.
+The correlation analysis was performed across the 24 capture files. 
 
 | Variables | Interpretation |
 |---|---|
@@ -303,11 +303,8 @@ The following conclusions are directly supported by the supplied CSV files:
 9. `S0_R08_01.csv` represented a high-activity environment with substantial Beacon, CTS, and Block Ack activity.
 10. High control-to-data ratios were associated with low observed Data-frame counts in the capture set.
 
-The Beacon finding should be written carefully:
 
-> The infrastructure AP capture environments contained substantially more observed Beacon activity than Xiaomi SoftAP capture environments.
-
-The statement should not be changed to “one AP transmitted all recorded Beacons” unless the analysis is filtered to the target AP’s BSSID or source MAC address.
+> Note: The infrastructure AP environments contained substantially more observed Beacon activity. However, without filtering by the target AP’s BSSID or source MAC address, this indicates higher overall environmental beacon activity rather than transmissions from a single access point.
 
 ### 7. Conclusions requiring controlled follow-up experiments
 
@@ -349,15 +346,15 @@ The follow-up should measure:
 
 ### 8. Research-question outcome summary
 
-> **RQ1 was answered affirmatively.** The Xiaomi SoftAP and infrastructure AP captures exhibited different frame compositions. Xiaomi captures were control-dominant, whereas AP capture environments were management-dominant.
+ **RQ1 was answered affirmatively.** The Xiaomi SoftAP and infrastructure AP captures exhibited different frame compositions. Xiaomi captures were control-dominant, whereas AP capture environments were management-dominant.
 
-> **RQ2 was answered affirmatively.** Xiaomi had a higher control-to-data ratio in every paired scenario. The median ratio was 10.012 for Xiaomi compared with 0.183 for AP.
+ **RQ2 was answered affirmatively.** Xiaomi had a higher control-to-data ratio in every paired scenario. The median ratio was 10.012 for Xiaomi compared with 0.183 for AP.
 
-> **RQ3 identified distinct subtype signatures.** Xiaomi was characterized by recurring RTS, CTS, and CF-End frames. AP environments were characterized by high Beacon and Probe Response activity, more observed ordinary Data frames, and occasional Block Ack activity.
+ **RQ3 identified distinct subtype signatures.** Xiaomi was characterized by recurring RTS, CTS, and CF-End frames. AP environments were characterized by high Beacon and Probe Response activity, more observed ordinary Data frames, and occasional Block Ack activity.
 
-> **RQ4 showed that environment affected magnitude but not the main repeated pattern.** Indoor/outdoor context and the scenarios represented by `S0_R01_01.csv`, `S1_R02_01.csv`, `S2_R02_01.csv`, `S0_R03_01.csv`, `S1_R06_01.csv`, `S2_R06_01.csv`, `S0_R08_01.csv`, `S1_R30_01.csv`, and `S2_R31_01.csv` changed observed counts and rates. Xiaomi nevertheless remained control-heavy relative to AP in every paired observation. `S0_R08_01.csv` showed that infrastructure environments can also become highly active and control-rich.
+ **RQ4 showed that environment affected magnitude but not the main repeated pattern.** Indoor/outdoor context and the scenarios represented by `S0_R01_01.csv`, `S1_R02_01.csv`, `S2_R02_01.csv`, `S0_R03_01.csv`, `S1_R06_01.csv`, `S2_R06_01.csv`, `S0_R08_01.csv`, `S1_R30_01.csv`, and `S2_R31_01.csv` changed observed counts and rates. Xiaomi nevertheless remained control-heavy relative to AP in every paired observation. `S0_R08_01.csv` showed that infrastructure environments can also become highly active and control-rich.
 
-> **RQ5 established the evidence boundary.** The captures support repeated descriptive conclusions about observed MAC-layer patterns. Controlled experiments are needed to identify causes, measure performance effects, isolate target BSSIDs, validate CF-End behaviour, and generalize beyond the tested Xiaomi SoftAP condition.
+ **RQ5 established the evidence boundary.** The captures support repeated descriptive conclusions about observed MAC-layer patterns. Controlled experiments are needed to identify causes, measure performance effects, isolate target BSSIDs, validate CF-End behaviour, and generalize beyond the tested Xiaomi SoftAP condition.
 
 ## Automated Analysis Tool
 
@@ -531,32 +528,6 @@ Important limitations include:
 - Filename-based mode labels should be confirmed using capture documentation and BSSID information.
 - Frame counts do not equal application throughput.
 
-## Repository Structure
-
-A recommended repository structure is:
-
-```text
-Practical-Evaluation-of-IEEE-802.11-WiFi-technology-performance/
-├── README.md
-├── requirements.txt
-├── src/
-│   └── wifi_mode_analysis.py
-├── data/
-│   ├── raw/
-│   ├── sanitized/
-│   └── examples/
-├── outputs/
-│   ├── tables/
-│   ├── figures/
-│   └── metadata/
-├── docs/
-│   ├── methodology.md
-│   ├── ethics-and-privacy.md
-│   └── results-summary.md
-└── LICENSE
-```
-
-Raw campus captures should not be uploaded without appropriate anonymization and approval. Sanitized or synthetic examples are preferred for public repositories.
 
 ## Installation
 
